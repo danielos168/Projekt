@@ -5,6 +5,7 @@ root = Tk()
 root.title('Guess who!?')
 root.iconbitmap('zapytanie.ico')
 root.geometry("850x540")
+root['background']='#856ff8'
 
 img_1 = ImageTk.PhotoImage(Image.open("Character_1.jpg"))
 img_2 = ImageTk.PhotoImage(Image.open("Character_2.jpg"))
@@ -89,6 +90,9 @@ label_21.grid(row=3, column=2)
 label_22.grid(row=3, column=3)
 label_23.grid(row=3, column=4)
 label_24.grid(row=3, column=5)
+
+text= Label(root, text="What do you wanna know?", bg='#856ff8')
+text.grid(row=1, column=6, sticky=N)
 
 intext = Entry(root, width =50, borderwidth = 5)
 intext.grid(row=1, column=6, sticky=S)
