@@ -128,17 +128,24 @@ txt = t + f"Punkty: {Punkty.get()}"
 text = Label(root2, text=txt, bg='#856ff8')
 text.pack()
 
+#Funkcja na koniec gry.
+def Koniec():
+    answer = Label(root2, text = f'Twoja liczba punktów wynosi {Punkty.get()}, nie możesz zadać więcej pytań.', bg ='#FF0000')
+    answer.pack()
 
 def response1(Punkty):
     Punkty.set(Punkty.get() - 1)
     t = 'Czy_człowiek'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f' Postać przeciwnika jest człowiekiem. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie jest człowiekiem. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f' Postać przeciwnika jest człowiekiem. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie jest człowiekiem. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton1 = Button(root2, text="Czy twoja postać jest człowiekiem?", fg="black", bg="grey",
@@ -148,13 +155,16 @@ myButton1 = Button(root2, text="Czy twoja postać jest człowiekiem?", fg="black
 def response2(Punkty):
     Punkty.set(Punkty.get() - 1)
     t = 'Czy_kobieta'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika jest kobietą. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie jest kobietą. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika jest kobietą. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie jest kobietą. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton2 = Button(root2, text="Czy twoja postać jest kobietą?", fg="black", bg="grey",
@@ -163,14 +173,17 @@ myButton2 = Button(root2, text="Czy twoja postać jest kobietą?", fg="black", b
 
 def response3(Punkty):
     Punkty.set(Punkty.get() - 1)
-    t = 'Czy_broda'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika ma brodę. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie ma brody. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        t = 'Czy_broda'.encode()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika ma brodę. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie ma brody. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton3 = Button(root2, text="Czy twoja postać ma brodę?", fg="black", bg="grey", command=lambda: response3(Punkty))
@@ -178,14 +191,17 @@ myButton3 = Button(root2, text="Czy twoja postać ma brodę?", fg="black", bg="g
 
 def response4(Punkty):
     Punkty.set(Punkty.get() - 1)
-    t = 'Czy_nakrycie_głowy'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika ma nakrycie głowy. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie ma nakrycia głowy. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        t = 'Czy_nakrycie_głowy'.encode()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika ma nakrycie głowy. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie ma nakrycia głowy. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton4 = Button(root2, text="Czy twoja postać ma nakrycie głowy?", fg="black", bg="grey",
@@ -194,14 +210,17 @@ myButton4 = Button(root2, text="Czy twoja postać ma nakrycie głowy?", fg="blac
 
 def response5(Punkty):
     Punkty.set(Punkty.get() - 1)
-    t = 'Czy_złoczyńca'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika jest złoczyńcą. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie jest złoczyńcą. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        t = 'Czy_złoczyńca'.encode()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika jest złoczyńcą. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie jest złoczyńcą. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton5 = Button(root2, text="Czy twoja postać jest złoczyńcą?", fg="black", bg="grey",
@@ -210,14 +229,17 @@ myButton5 = Button(root2, text="Czy twoja postać jest złoczyńcą?", fg="black
 
 def response6(Punkty):
     Punkty.set(Punkty.get() - 1)
-    t = 'Czy_okulary'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika ma okulary. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie ma okularów. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        t = 'Czy_okulary'.encode()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika ma okulary. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie ma okularów. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton6 = Button(root2, text="Czy twoja postać ma okulary?", fg="black", bg="grey", command=lambda: response6(Punkty))
@@ -225,14 +247,17 @@ myButton6 = Button(root2, text="Czy twoja postać ma okulary?", fg="black", bg="
 
 def response7(Punkty):
     Punkty.set(Punkty.get() - 1)
-    t = 'Czy_gruby'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika jest przy tuszy. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie jest przy tuszy. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        t = 'Czy_gruby'.encode()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika jest przy tuszy. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie jest przy tuszy. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton7 = Button(root2, text="Czy twoja postać jest przy tuszy?", fg="black", bg="grey",
@@ -241,14 +266,17 @@ myButton7 = Button(root2, text="Czy twoja postać jest przy tuszy?", fg="black",
 
 def response8(Punkty):
     Punkty.set(Punkty.get() - 1)
-    t = 'Czy_łysy'.encode()
-    client.send(t)
-    x = client.recv(BUFFER).decode()
-    if x == 'True':
-        answer = Label(root2, text=f'Postać przeciwnika jest łysy. Punkty: {Punkty.get()}', bg='#856ff8')
+    if Punkty.get() == -1:
+        Koniec()
     else:
-        answer = Label(root2, text=f'Postać przeciwnika nie jest łysy. Punkty: {Punkty.get()}', bg='#856ff8')
-    answer.pack()
+        t = 'Czy_łysy'.encode()
+        client.send(t)
+        x = client.recv(BUFFER).decode()
+        if x == 'True':
+            answer = Label(root2, text=f'Postać przeciwnika jest łysy. Punkty: {Punkty.get()}', bg='#856ff8')
+        else:
+            answer = Label(root2, text=f'Postać przeciwnika nie jest łysy. Punkty: {Punkty.get()}', bg='#856ff8')
+        answer.pack()
 
 
 myButton8 = Button(root2, text="Czy twoja postać jest łysa?", fg="black", bg="grey", command=lambda: response8(Punkty))
