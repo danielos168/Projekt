@@ -3,8 +3,8 @@ from threading import Thread
 from Game_Characters import *
 from random import randrange
 
-HOST = '192.168.56.1'
-PORT = 15200
+HOST = 'localhost'
+PORT = 2223
 BUFFER = 1024
 
 server = socket(AF_INET, SOCK_STREAM)

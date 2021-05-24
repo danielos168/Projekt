@@ -1,8 +1,8 @@
 from socket import *
 from tkinter import *
 from PIL import ImageTk, Image
-HOST = '192.168.56.1'
-PORT = 15200
+HOST = 'localhost'
+PORT = 2223
 
 BUFFER = 1024
 
