@@ -1,6 +1,7 @@
 from socket import *
 from tkinter import *
 from PIL import ImageTk, Image
+from tkinter.ttk import Combobox
 
 HOST = 'localhost'
 PORT = 2223
@@ -116,7 +117,7 @@ Button_24.grid(row=3, column=5)
 root2 = Tk()
 root2.title('Guess who!?')
 root2.iconbitmap('Photos/zapytanie.ico')
-root2.geometry("300x400")
+root2.geometry("450x520")
 root2['background'] = '#856ff8'
 t = client.recv(BUFFER).decode()
 
@@ -133,9 +134,12 @@ class Punkt:
 
 
 Punkty = Punkt()
-txt = t + f"Punkty: {Punkty.get()}"
+txt = t + "."
 text = Label(root2, text=txt, bg='#856ff8')
+txt2 = f"Ilość punktów początkowych: {Punkty.get()}"
+text2 = Label(root2, text=txt2, bg='#856ff8')
 text.pack()
+text2.pack()
 
 #Funkcja na koniec gry.
 def Koniec():
@@ -158,7 +162,7 @@ def response1(Punkty):
         answer.pack()
 
 
-myButton1 = Button(root2, text="Czy twoja postać jest człowiekiem?", fg="black", bg="grey",
+myButton1 = Button(root2, text="Czy twoja postać jest człowiekiem?", fg="black", bg="grey", width=200,
                    command=lambda: response1(Punkty))
 
 
@@ -177,7 +181,7 @@ def response2(Punkty):
         answer.pack()
 
 
-myButton2 = Button(root2, text="Czy twoja postać jest kobietą?", fg="black", bg="grey",
+myButton2 = Button(root2, text="Czy twoja postać jest kobietą?", fg="black", bg="grey", width=200,
                    command=lambda: response2(Punkty))
 
 
@@ -196,7 +200,8 @@ def response3(Punkty):
         answer.pack()
 
 
-myButton3 = Button(root2, text="Czy twoja postać ma brodę?", fg="black", bg="grey", command=lambda: response3(Punkty))
+myButton3 = Button(root2, text="Czy twoja postać ma brodę?", fg="black", bg="grey", width=200,
+                   command=lambda: response3(Punkty))
 
 
 def response4(Punkty):
@@ -214,7 +219,7 @@ def response4(Punkty):
         answer.pack()
 
 
-myButton4 = Button(root2, text="Czy twoja postać ma nakrycie głowy?", fg="black", bg="grey",
+myButton4 = Button(root2, text="Czy twoja postać ma nakrycie głowy?", fg="black", bg="grey", width=200,
                    command=lambda: response4(Punkty))
 
 
@@ -233,7 +238,7 @@ def response5(Punkty):
         answer.pack()
 
 
-myButton5 = Button(root2, text="Czy twoja postać jest złoczyńcą?", fg="black", bg="grey",
+myButton5 = Button(root2, text="Czy twoja postać jest złoczyńcą?", fg="black", bg="grey", width=200,
                    command=lambda: response5(Punkty))
 
 
@@ -252,7 +257,8 @@ def response6(Punkty):
         answer.pack()
 
 
-myButton6 = Button(root2, text="Czy twoja postać ma okulary?", fg="black", bg="grey", command=lambda: response6(Punkty))
+myButton6 = Button(root2, text="Czy twoja postać ma okulary?", fg="black", bg="grey", width=200,
+                   command=lambda: response6(Punkty))
 
 
 def response7(Punkty):
@@ -270,7 +276,7 @@ def response7(Punkty):
         answer.pack()
 
 
-myButton7 = Button(root2, text="Czy twoja postać jest przy tuszy?", fg="black", bg="grey",
+myButton7 = Button(root2, text="Czy twoja postać jest przy tuszy?", fg="black", bg="grey", width=200,
                    command=lambda: response7(Punkty))
 
 
@@ -289,16 +295,14 @@ def response8(Punkty):
         answer.pack()
 
 
-myButton8 = Button(root2, text="Czy twoja postać jest łysa?", fg="black", bg="grey", command=lambda: response8(Punkty))
+myButton8 = Button(root2, text="Czy twoja postać jest łysa?", fg="black", bg="grey", width=200,
+                   command=lambda: response8(Punkty))
 
-klik = StringVar()
-klik.set("Aladyn")
-#Dropdown na wybranie odpowiedzi
-drop = OptionMenu(root2, klik, "Aladyn", "Dżasmina", "Dżin", "Dżafar", "Kapitan Hak", "Piotruś Pan", "Wendy", "Herkules", "Hades", "Elastyna", "Pan Iniemamocny", "Elsa", "Olaf", "Ariel", "Baloo", "Bestia", "Lumiere", "Geppetto", "Roszpunka", "Szeryf Chudy", "Pan Bulwa", "Kuzco", "Mulan", "Tarzan")
+items =("Aladyn", "Dżasmina", "Dżin", "Dżafar", "Kapitan Hak", "Piotruś Pan", "Wendy", "Herkules", "Hades", "Elastyna", "Pan Iniemamocny", "Elsa", "Olaf", "Ariel", "Baloo", "Bestia", "Lumiere", "Geppetto", "Roszpunka", "Szeryf Chudy", "Pan Bulwa", "Kuzco", "Mulan", "Tarzan")
+combobox=Combobox(root2)
+combobox['values']=items
+combobox.current(0)
 
-#def wyslijOdp():
-    #myLabel = Label(root2, text=klik.get()).pack()
-    #command=lambda: wyslijOdp,
 myButton = Button(root2, text="Check", fg="black", bg="grey")
 
 myButton1.pack()
@@ -310,7 +314,7 @@ myButton6.pack()
 myButton7.pack()
 myButton8.pack()
 
-drop.pack()
+combobox.pack()
 
 myButton.pack()
 
