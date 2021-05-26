@@ -287,9 +287,11 @@ Character_24 = {
     'Czy_gruby': False,
     'Czy_łysy': False
 }
-Character_List = [Character_24, Character_23, Character_22, Character_21, Character_20, Character_19, Character_18,
-                  Character_17, Character_16,
-                  Character_15, Character_14, Character_13, Character_12, Character_11, Character_10, Character_9,
-                  Character_8, Character_7, Character_6,
-                  Character_5, Character_4, Character_3, Character_2, Character_1
-                  ]
+
+Character_List = [Character_1, Character_2, Character_3, Character_4, Character_5, Character_6, Character_7,
+                  Character_8,
+                  Character_9, Character_10,
+                  Character_11, Character_12, Character_13, Character_14, Character_15, Character_16, Character_17,
+                  Character_18, Character_19, Character_20, Character_21, Character_22, Character_23, Character_24]
+Character_List_Keys = ['Czy_człowiek', 'Czy_kobieta', 'Czy_broda', 'Czy_nakrycie_głowy', 'Czy_złoczyńca', 'Czy_okulary',
+                       'Czy_gruby', 'Czy_łysy']
