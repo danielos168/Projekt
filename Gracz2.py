@@ -2,6 +2,7 @@ from socket import *
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter.ttk import Combobox
+from time import sleep
 
 HOST = 'localhost'
 PORT = 2223
@@ -15,18 +16,20 @@ name = input('Podaj nazwę gracza: ').encode()
 
 client.send(name)
 
-#Okno pierwsze - zdjęcia postaci
+# Okno pierwsze - zdjęcia postaci
 root = Tk()
 root.title('Guess who!?')
 root.iconbitmap('Photos/zapytanie.ico')
 root.geometry("577x560")
 root['background'] = '#856ff8'
 
+
 def changeState(button_name):
-    if(button_name['relief']=="solid"):
+    if (button_name['relief'] == "solid"):
         button_name['relief'] = "sunken"
     else:
         button_name['relief'] = "solid"
+
 
 img_1 = PhotoImage(file="Photos/Character_1.png")
 img_2 = PhotoImage(file="Photos/Character_2.png")
@@ -56,34 +59,34 @@ img_22 = PhotoImage(file="Photos/Character_22.png")
 img_23 = PhotoImage(file="Photos/Character_23.png")
 img_24 = PhotoImage(file="Photos/Character_24.png")
 
-Button_1=Button(root, image=img_1, borderwidth=4, relief="solid", command=lambda:changeState(Button_1))
-Button_2=Button(root, image=img_2, borderwidth=4, relief="solid", command=lambda:changeState(Button_2))
-Button_3=Button(root, image=img_3, borderwidth=4, relief="solid", command=lambda:changeState(Button_3))
-Button_4=Button(root, image=img_4, borderwidth=4, relief="solid", command=lambda:changeState(Button_4))
-Button_5=Button(root, image=img_5, borderwidth=4, relief="solid", command=lambda:changeState(Button_5))
+Button_1 = Button(root, image=img_1, borderwidth=4, relief="solid", command=lambda: changeState(Button_1))
+Button_2 = Button(root, image=img_2, borderwidth=4, relief="solid", command=lambda: changeState(Button_2))
+Button_3 = Button(root, image=img_3, borderwidth=4, relief="solid", command=lambda: changeState(Button_3))
+Button_4 = Button(root, image=img_4, borderwidth=4, relief="solid", command=lambda: changeState(Button_4))
+Button_5 = Button(root, image=img_5, borderwidth=4, relief="solid", command=lambda: changeState(Button_5))
 
-Button_6=Button(root, image=img_6, borderwidth=4, relief="solid", command=lambda:changeState(Button_6))
-Button_7=Button(root, image=img_7, borderwidth=4, relief="solid", command=lambda:changeState(Button_7))
-Button_8=Button(root, image=img_8, borderwidth=4, relief="solid", command=lambda:changeState(Button_8))
-Button_9=Button(root, image=img_9, borderwidth=4, relief="solid", command=lambda:changeState(Button_9))
-Button_10=Button(root, image=img_10, borderwidth=4, relief="solid", command=lambda:changeState(Button_10))
+Button_6 = Button(root, image=img_6, borderwidth=4, relief="solid", command=lambda: changeState(Button_6))
+Button_7 = Button(root, image=img_7, borderwidth=4, relief="solid", command=lambda: changeState(Button_7))
+Button_8 = Button(root, image=img_8, borderwidth=4, relief="solid", command=lambda: changeState(Button_8))
+Button_9 = Button(root, image=img_9, borderwidth=4, relief="solid", command=lambda: changeState(Button_9))
+Button_10 = Button(root, image=img_10, borderwidth=4, relief="solid", command=lambda: changeState(Button_10))
 
-Button_11=Button(root, image=img_11, borderwidth=4, relief="solid", command=lambda:changeState(Button_11))
-Button_12=Button(root, image=img_12, borderwidth=4, relief="solid", command=lambda:changeState(Button_12))
-Button_13=Button(root, image=img_13, borderwidth=4, relief="solid", command=lambda:changeState(Button_13))
-Button_14=Button(root, image=img_14, borderwidth=4, relief="solid", command=lambda:changeState(Button_14))
-Button_15=Button(root, image=img_15, borderwidth=4, relief="solid", command=lambda:changeState(Button_15))
+Button_11 = Button(root, image=img_11, borderwidth=4, relief="solid", command=lambda: changeState(Button_11))
+Button_12 = Button(root, image=img_12, borderwidth=4, relief="solid", command=lambda: changeState(Button_12))
+Button_13 = Button(root, image=img_13, borderwidth=4, relief="solid", command=lambda: changeState(Button_13))
+Button_14 = Button(root, image=img_14, borderwidth=4, relief="solid", command=lambda: changeState(Button_14))
+Button_15 = Button(root, image=img_15, borderwidth=4, relief="solid", command=lambda: changeState(Button_15))
 
-Button_16=Button(root, image=img_16, borderwidth=4, relief="solid", command=lambda:changeState(Button_16))
-Button_17=Button(root, image=img_17, borderwidth=4, relief="solid", command=lambda:changeState(Button_17))
-Button_18=Button(root, image=img_18, borderwidth=4, relief="solid", command=lambda:changeState(Button_18))
-Button_19=Button(root, image=img_19, borderwidth=4, relief="solid", command=lambda:changeState(Button_19))
-Button_20=Button(root, image=img_20, borderwidth=4, relief="solid", command=lambda:changeState(Button_20))
+Button_16 = Button(root, image=img_16, borderwidth=4, relief="solid", command=lambda: changeState(Button_16))
+Button_17 = Button(root, image=img_17, borderwidth=4, relief="solid", command=lambda: changeState(Button_17))
+Button_18 = Button(root, image=img_18, borderwidth=4, relief="solid", command=lambda: changeState(Button_18))
+Button_19 = Button(root, image=img_19, borderwidth=4, relief="solid", command=lambda: changeState(Button_19))
+Button_20 = Button(root, image=img_20, borderwidth=4, relief="solid", command=lambda: changeState(Button_20))
 
-Button_21=Button(root, image=img_21, borderwidth=4, relief="solid", command=lambda:changeState(Button_21))
-Button_22=Button(root, image=img_22, borderwidth=4, relief="solid", command=lambda:changeState(Button_22))
-Button_23=Button(root, image=img_23, borderwidth=4, relief="solid", command=lambda:changeState(Button_23))
-Button_24=Button(root, image=img_24, borderwidth=4, relief="solid", command=lambda:changeState(Button_24))
+Button_21 = Button(root, image=img_21, borderwidth=4, relief="solid", command=lambda: changeState(Button_21))
+Button_22 = Button(root, image=img_22, borderwidth=4, relief="solid", command=lambda: changeState(Button_22))
+Button_23 = Button(root, image=img_23, borderwidth=4, relief="solid", command=lambda: changeState(Button_23))
+Button_24 = Button(root, image=img_24, borderwidth=4, relief="solid", command=lambda: changeState(Button_24))
 
 Button_1.grid(row=0, column=0)
 Button_2.grid(row=0, column=1)
@@ -113,7 +116,7 @@ Button_22.grid(row=3, column=3)
 Button_23.grid(row=3, column=4)
 Button_24.grid(row=3, column=5)
 
-#Okno drugie - zapytania, odpowiedzi i wynik
+# Okno drugie - zapytania, odpowiedzi i wynik
 root2 = Tk()
 root2.title('Guess who!?')
 root2.iconbitmap('Photos/zapytanie.ico')
@@ -141,12 +144,15 @@ text2 = Label(root2, text=txt2, bg='#856ff8')
 text.pack()
 text2.pack()
 
-#Funkcja na koniec gry.
+
+# Funkcja na koniec gry.
 def Koniec():
-    answer = Label(root2, text = f'Twoja liczba punktów wynosi {Punkty.get()}, nie możesz zadać więcej pytań.', bg ='#FF0000')
+    answer = Label(root2, text=f'Twoja liczba punktów wynosi {Punkty.get()}, nie możesz zadać więcej pytań.',
+                   bg='#FF0000')
     answer.pack()
 
-#Buttony  pytaniami i fukcje do odpowiedzi
+
+# Buttony  pytaniami i fukcje do odpowiedzi
 def response1(Punkty):
     Punkty.set(Punkty.get() - 1)
     t = 'Czy_człowiek'.encode()
@@ -215,7 +221,8 @@ def response4(Punkty):
         if x == 'True':
             answer = Label(root2, text=f'Postać przeciwnika ma nakrycie głowy. Punkty: {Punkty.get()}', bg='#856ff8')
         else:
-            answer = Label(root2, text=f'Postać przeciwnika nie ma nakrycia głowy. Punkty: {Punkty.get()}', bg='#856ff8')
+            answer = Label(root2, text=f'Postać przeciwnika nie ma nakrycia głowy. Punkty: {Punkty.get()}',
+                           bg='#856ff8')
         answer.pack()
 
 
@@ -298,12 +305,26 @@ def response8(Punkty):
 myButton8 = Button(root2, text="Czy twoja postać jest łysa?", fg="black", bg="grey", width=200,
                    command=lambda: response8(Punkty))
 
-items =("Aladyn", "Dżasmina", "Dżin", "Dżafar", "Kapitan Hak", "Piotruś Pan", "Wendy", "Herkules", "Hades", "Elastyna", "Pan Iniemamocny", "Elsa", "Olaf", "Ariel", "Baloo", "Bestia", "Lumiere", "Geppetto", "Roszpunka", "Szeryf Chudy", "Pan Bulwa", "Kuzco", "Mulan", "Tarzan")
-combobox=Combobox(root2)
-combobox['values']=items
+items = ("Aladyn", "Dżasmina", "Dżin", "Dżafar", "Kapitan Hak", "Piotruś Pan", "Wendy", "Herkules", "Hades", "Elastyna",
+         "Pan Iniemamocny", "Elsa", "Olaf", "Ariel", "Baloo", "Bestia", "Lumiere", "Geppetto", "Roszpunka",
+         "Szeryf Chudy",
+         "Pan Bulwa", "Kuzco", "Mushu", "Clayton")
+combobox = Combobox(root2)
+combobox['values'] = items
 combobox.current(0)
 
-myButton = Button(root2, text="Check", fg="black", bg="grey")
+
+def check():
+    t = str(combobox.current()).encode()
+    client.send(t)
+    x = client.recv(BUFFER).decode()
+    if x == 'True':
+        answer = Label(root2, text=f'Udało Ci się zakończyć grę! Zdobyte punkty: {Punkty.get()}', bg='#856ff8')
+    else:
+        answer = Label(root2, text=f'Niestety, przegrałeś :( Gra się kończy', bg='#856ff8')
+    answer.pack()
+
+myButton = Button(root2, text="Check", fg="black", bg="grey", command=lambda: check())
 
 myButton1.pack()
 myButton2.pack()
